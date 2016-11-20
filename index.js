@@ -12,6 +12,7 @@ var HG_MPG = 'https://s3.amazonaws.com/hello-gov/helloGov.mp3';
 var client = twilio.RestClient(accountSid, authToken);
 
 var ISSUES = [
+  {
     type: 'Minority Issues',
     person: 'Senator Barbara Boxer',
     phone: '+12022243553',
