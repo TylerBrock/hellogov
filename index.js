@@ -26,7 +26,7 @@ var ISSUES = [
 
 function describeIssues() {
   return ISSUES.map(function (issue, idx){
-    return `Press ${idx} to call ${issue.person} about ${issue.type}.`
+    return `Press ${idx+1} to call ${issue.person} about ${issue.type}.`
   }).join(' ');
 }
 
@@ -69,8 +69,8 @@ app.post('/selected', function (req, res) {
 });
 
 app.post('/process', function (req, res) {
-  var digit = req.query.Digits;
-  var issue = ISSUES[digit];
+  var digit = parseInt(req.query.Digits);
+  var issue = ISSUES[digit+1];
   if (issue) {
     res.redirect('/selected');
   } else {
