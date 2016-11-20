@@ -81,7 +81,7 @@ app.post('/process', function (req, res) {
 app.post('/call', function (req, res) {
   var twiml = new twilio.TwimlResponse();
   twiml
-    .say(['Welcome to hello guv', describeIssues()].join(' '))
+    .say(['Welcome to hello guv.', describeIssues()].join(' '))
     .gather({
       numDigits: 1,
       action: '/process',
