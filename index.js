@@ -9,7 +9,7 @@ var HOST = 'hello-gov.herokuapp.com'
 
 var HG_MPG = 'https://s3.amazonaws.com/hello-gov/helloGov.mp3';
 
-var client = twilio.RestClient(accountSid, authToken);
+var client = twilio.RestClient(ACCOUNT_SID, AUTH_TOKEN);
 
 var ISSUES = [
   {
