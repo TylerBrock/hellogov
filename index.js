@@ -22,11 +22,11 @@ var ISSUES = [
     person: 'Rep Nancy Pelosi',
     phone: '+12022254965',
   }
-]
+];
 
 function describeIssues() {
   return ISSUES.map(function (issue, idx){
-    `Press ${idx} to call ${issue.person} about ${issue.type}.`
+    return `Press ${idx} to call ${issue.person} about ${issue.type}.`
   }).join(' ');
 }
 
@@ -80,8 +80,9 @@ app.post('/process', function (req, res) {
 
 app.post('/call', function (req, res) {
   var twiml = new twilio.TwimlResponse();
+  var schpeil = ['Welcome to hello guv.', describeIssues()].join(' ');
   twiml
-    .say(['Welcome to hello guv.', describeIssues()].join(' '))
+    .say(schpeil)
     .gather({
       numDigits: 1,
       action: '/process',
