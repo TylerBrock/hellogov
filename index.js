@@ -85,6 +85,7 @@ app.post('/call', function (req, res) {
     .gather({
       numDigits: 1,
       action: '/process',
+      timeout: 10,
     });
   sendTwiml(res, twiml);
 });
