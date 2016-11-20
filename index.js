@@ -62,7 +62,7 @@ app.post('/processInfo', function (req, res) {
 });
 
 app.post('/selected', function (req, res) {
-  var digit = req.query.Digits;
+  var digit = parseInt(req.query.Digits);
   var issue = ISSUES[digit];
   var twiml = new twilio.TwimlResponse();
   twiml.say(`Ok, are you ready to talk with ${issue.person}?`);
