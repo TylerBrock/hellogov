@@ -63,14 +63,15 @@ app.post('/processInfo', function (req, res) {
 
 app.post('/selected', function (req, res) {
   var digit = parseInt(req.query.Digits);
-  var issue = ISSUES[digit];
+  var issue = ISSUES[digit-1];
   var twiml = new twilio.TwimlResponse();
   twiml.say(`Ok, are you ready to talk with ${issue.person}?`);
+  sendTwiml(res, twiml);
 });
 
 app.post('/process', function (req, res) {
   var digit = parseInt(req.query.Digits);
-  var issue = ISSUES[digit+1];
+  var issue = ISSUES[digit-1];
   if (issue) {
     res.redirect('/selected');
   } else {
